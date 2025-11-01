@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.post("/chat", async (req, res) => {
   const { message } = req.body;
-  const msg = message.toLowerCase();
+  const msg = message?.toLowerCase() || "";
 
   let reply = "Désolé, je n'ai pas compris votre question. Pouvez-vous reformuler ?";
 
@@ -50,7 +50,7 @@ app.post("/chat", async (req, res) => {
 
   // 🔹 Support client
   else if (msg.includes("contact") || msg.includes("assistance") || msg.includes("aide")) {
-    reply = "Vous pouvez nous contacter via notre formulaire de contact, par téléphone ou via WhatsApp pour toute assistance. pour plus d'information veiller entrer dans la rubrique contact de notre site";
+    reply = "Vous pouvez nous contacter via notre formulaire de contact, par téléphone ou via WhatsApp pour toute assistance. Pour plus d'informations, veuillez consulter la rubrique contact de notre site.";
   }
 
   // 🔹 Promotions
@@ -66,4 +66,6 @@ app.post("/chat", async (req, res) => {
   res.json({ reply });
 });
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+// 🚀 CHANGEMENT ICI : pour Render
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`✅ Serveur démarré sur le port ${PORT}`));
