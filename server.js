@@ -15,7 +15,7 @@ app.post("/chat", async (req, res) => {
 
   // 🔹 Salutations
   if (msg.includes("bonjour") || msg.includes("salut")) {
-    reply = "Bonjour ! Bienvenue sur Les Joyaux du Futur ! Comment puis-je vous aider aujourd'hui ?";
+    reply = "Bonjour ! Bienvenue sur Les Joyaux du Temps ! Comment puis-je vous aider aujourd'hui ?";
   }
 
   // 🔹 Produits
